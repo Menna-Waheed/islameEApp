@@ -7,8 +7,15 @@ import 'package:islame_app/presentation/tabs/quran/model/quran_resources.dart';
 import 'package:islame_app/presentation/tabs/quran/widget/most_recently.dart';
 import 'package:islame_app/presentation/tabs/quran/widget/quran_item.dart';
 
-class QuranTab extends StatelessWidget {
-  const QuranTab({super.key});
+class QuranTab extends StatefulWidget {
+  QuranTab({super.key});
+
+  @override
+  State<QuranTab> createState() => _QuranTabState();
+}
+
+class _QuranTabState extends State<QuranTab> {
+  List<int>searchList = List.generate(114, (index) => index,);
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +36,11 @@ class QuranTab extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextField(
+            onChanged: (newText) {
+              search(newText);
+            },
+            style: AppFonts.bold20white,
+            cursorColor: AppColors.primryColor,
             decoration: InputDecoration(
               prefixIcon: Image.asset(AppAssets.VectorSearch),
               hintText: 'Sura Name',
@@ -64,9 +76,9 @@ class QuranTab extends StatelessWidget {
                         onTap: () {
                           Navigator.pushNamed(
                               context, AppRoute.quranDetailesScreen,
-                              arguments: index);
+                              arguments: searchList[index]);
                         },
-                        child: QuranItem(index: index,));
+                        child: QuranItem(index: searchList[index],));
                   },
                   separatorBuilder: (context, index) {
                     return Divider(
@@ -74,7 +86,7 @@ class QuranTab extends StatelessWidget {
                       indent: width * 0.04,
                     );
                   },
-                  itemCount: QuranResources.arabicQuranSurasList.length))
+                  itemCount: searchList.length))
 
         ],
 
@@ -93,4 +105,21 @@ class QuranTab extends StatelessWidget {
     );
   }
 
+  void search(String newText) {
+    List<int>filterList = [];
+    for (int i = 0; i < 114; i++) {
+      if (QuranResources.englishQuranSurahsList[i].toLowerCase().contains(
+          newText.toLowerCase())) {
+        filterList.add(i);
+      }
+      if (QuranResources.arabicQuranSurasList[i].toLowerCase().contains(
+          newText.toLowerCase())) {
+        filterList.add(i);
+      }
+    }
+    searchList = filterList;
+    setState(() {
+
+    });
+  }
 }
