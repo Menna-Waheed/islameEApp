@@ -14,13 +14,12 @@ class _SebhaTabState extends State<SebhaTab> {
   double rotate = 0.0;
   int index = 0;
 
-  List<String>doaa = [
+  List<String>azkar = [
     'سبحان الله',
     'الحمد الله',
     'لااله الا الله',
     'الله اكبر',
     'استغفر الله',
-
   ];
 
   @override
@@ -45,25 +44,13 @@ class _SebhaTabState extends State<SebhaTab> {
                   children: [
                     GestureDetector(
                         onTap: () {
-                          if (counter == 33) {
-                            index++;
-                            counter = 0;
-                          }
-                          if (index == doaa.length) {
-                            index = 0;
-                          }
-                          rotate++;
-                          counter++;
-
-                          setState(() {
-
-                          });
+                          sebhaLogic();
                         },
                         child: Transform.rotate(angle: rotate,
                             child: Image.asset(AppAssets.sebha_body))),
                     Column(
                       children: [
-                        Text('${doaa[index]}', style: AppFonts.bold36White),
+                        Text('${azkar[index]}', style: AppFonts.bold36White),
                         SizedBox(height: height * 0.02,),
                         Text('$counter', style: AppFonts.bold36White),
 
@@ -74,4 +61,21 @@ class _SebhaTabState extends State<SebhaTab> {
       ],
     );
   }
+
+  void sebhaLogic() {
+    if (counter == 33) {
+      index++;
+      counter = 0;
+    }
+    if (index == azkar.length) {
+      index = 0;
+    }
+    rotate++;
+    counter++;
+
+    setState(() {
+
+    });
+  }
+
 }
