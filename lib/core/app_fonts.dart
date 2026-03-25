@@ -45,6 +45,12 @@ class AppFonts {
     fontWeight: FontWeight.bold,
   );
 
+  static final TextStyle bold16primaryColor = TextStyle(
+    color: AppColors.primryColor,
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+  );
+
   static final TextStyle bold24primaryColor = TextStyle(
     color: AppColors.primryColor,
     fontSize: 24,

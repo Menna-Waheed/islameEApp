@@ -7,4 +7,5 @@ class AppColors {
   static const Color transperentColor = Colors.transparent;
   static const Color secoundColor = Color(0x99202020);
   static const Color color_radio = Color(0xb3202020);
+  static const Color colorgray = Color(0xff707070);
 }
