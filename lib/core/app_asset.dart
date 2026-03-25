@@ -16,6 +16,7 @@ class AppAssets {
   static const String VectorStar = 'assets/images/vector_star.png';
   static const String suraImage = 'assets/images/sura_image.png';
   static const String suraDecoration = 'assets/images/sura_decoration_page.png';
+  static const String hadethDecoration = 'assets/images/hadeth_decoration.png';
 
   static const String decorationRHS = 'assets/images/decoration_right.png';
   static const String decorationLHS = 'assets/images/decoration_Left.png';
@@ -25,6 +26,12 @@ class AppAssets {
   static const String sebha_body = 'assets/images/sebha_body.png';
 
   static const String hand_sebha = 'assets/images/hand_sebha.png';
+
+  static const String onBoarding1 = 'assets/images/onbording1.png';
+  static const String onBoarding2 = 'assets/images/onbording2.png';
+  static const String onBoarding3 = 'assets/images/onbording3.png';
+  static const String onBoarding4 = 'assets/images/onbording4.png';
+  static const String onBoarding5 = 'assets/images/onbording5.png';
 
   static const String EveningAzkar = 'assets/images/evening_azkar.png';
   static const String MorningAzkar = 'assets/images/morning_azkar.png';
